@@ -3,11 +3,12 @@
 # PS1="[\u@\h \W]\\$ "
 
 # fedora provided toolbox
-# [toolbx toolbox][user@host directory]$ >
+# [toolbx toolbox]$ >
 # PS1="\[\e[31m\]\`is_toolbox\`\]\e[m\]\[\e[32m\]\\$ \[\e[m\]\[\e[37m\]❱\[\e[m\] "
 
 # [toolbx toolbox][user@host directory] $ >
 # PS1="\[\e[31m\]\`is_toolbox\`\]\e[m\]\[\e[32m\][\u@\h \W]\\$ \[\e[m\]\[\e[37m\]❱\[\e[m\] "
 
 # [user@host directory][toolbx toolbox] $
-PS1="\[\e[32m\][\u@\h \W]\[\e[31m\]\`is_toolbox\`\]\e[m\]\[\e[32m\]\\$ \[\e[37m\]" 
+# PS1="\[\e[32m\][\u@\h \W]\]\e[m\]\[\e[31m\]\`is_toolbox\`\]\e[m\]\[\e[32m\]\\$ \[\e[m\] " 
+PS1="\[$(tput setaf 40)\][\u@\h \W]\[$(tput setaf 196)\]\$(is_toolbox)\[$(tput sgr0)\]\\$ "

@@ -1,3 +1,4 @@
+# README
 These dotfiles are intended to be managed with GNU stow:
 * stow <directory>
   * create symlinks for the directory in the parent folder (which should be home)
@@ -6,9 +7,15 @@ These dotfiles are intended to be managed with GNU stow:
 
 This directory should be a non-hidden folder in the home folder.
 
-Recommended "~\dotfiles\"
+# Setup
+This directory is expecte to be "~\dotfiles\
 
-
+# Application Specific
+## BASH
 BASH is read only
 * to lock == chmod -w bash -R
 * to unlock == chmod +w bash -R
+use "ls -al" to check
+
+# Detect changes
+git ls-files --modified --others --exclude-standard
