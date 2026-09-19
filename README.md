@@ -7,3 +7,8 @@ These dotfiles are intended to be managed with GNU stow:
 This directory should be a non-hidden folder in the home folder.
 
 Recommended "~\dotfiles\"
+
+
+BASH is read only
+* to lock == chmod -w bash -R
+* to unlock == chmod +w bash -R
