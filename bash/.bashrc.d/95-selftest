@@ -1,0 +1,1 @@
+sh -c 'cd ~/dotfiles && git ls-files --full-name --modified --others --exclude-standard | grep -i bash && echo Untracked bash changes detected'
