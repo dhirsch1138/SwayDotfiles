@@ -17,4 +17,4 @@ cd $pwd
 
 echo Entering $toolbox_default ...
 toolbox list --containers | grep $toolbox_default > /dev/null || toolbox create $toolbox_defaulti
-toolbox enter $toolbox_default || echo *** failed to enter toolbox $toolbox_default ***
+toolbox enter $toolbox_default
