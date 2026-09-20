@@ -14,5 +14,7 @@ declare local toolbox_default=default.interactive
 cd $dotfiles_path
 git ls-files --full-name --modified --others --exclude-standard | grep -i bash > /dev/null && echo Warning: untracked bash changes detected
 cd $pwd
-toolbox list --containers | grep $toolbox_default > /dev/null || toolbox create $toolbox_default
+
+echo Entering $toolbox_default ...
+toolbox list --containers | grep $toolbox_default > /dev/null || toolbox create $toolbox_defaulti
 toolbox enter $toolbox_default || echo *** failed to enter toolbox $toolbox_default ***
