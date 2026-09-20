@@ -5,9 +5,14 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-echo Bash startup self check...
-sh -c 'cd ~/dotfiles && git ls-files --full-name --modified --others --exclude-standard | grep -i bash && echo Untracked bash changes detected'
+# contants
 
-echo Entering default.interactive toolbox...
-toolbox list --containers | grep default.interactive > /dev/null || toolbox create default.interactive
-toolbox enter default.interactive || echo *** failed to enter toolbox default.interactive ***
+declare local dotfiles_path=~/dotfiles
+declare local currentworkingdirecory=$(pwd)
+declare local toolbox_default=default.interactive
+
+cd $dotfiles_path
+git ls-files --full-name --modified --others --exclude-standard | grep -i bash > /dev/null && echo Warning: untracked bash changes detected
+cd $pwd
+toolbox list --containers | grep $toolbox_default > /dev/null || toolbox create $toolbox_default
+toolbox enter $toolbox_default || echo *** failed to enter toolbox $toolbox_default ***
