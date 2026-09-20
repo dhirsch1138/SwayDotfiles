@@ -16,5 +16,5 @@ git ls-files --full-name --modified --others --exclude-standard | grep -i bash >
 cd $pwd
 
 echo Entering $toolbox_default ...
-toolbox list --containers | grep $toolbox_default > /dev/null || toolbox create $toolbox_defaulti
+toolbox list --containers | grep $toolbox_default > /dev/null || toolbox create $toolbox_default
 toolbox enter $toolbox_default
