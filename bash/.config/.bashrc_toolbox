@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# invoke standard bash entrypoint
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+
+echo Bash startup self check...
+sh -c 'cd ~/dotfiles && git ls-files --full-name --modified --others --exclude-standard | grep -i bash && echo Untracked bash changes detected' || echo passed
+
+echo Entering default.interactive toolbox...
+toolbox list --containers | grep default.interactive > /dev/null || toolbox create default.interactive
+toolbox enter default.interactive || echo *** failed to enter toolbox default.interactive ***
