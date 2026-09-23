@@ -1,10 +1,11 @@
-if [ $(istoolbx) ]
+if [[ $(istoolbx) ]]
 then
   echo "Current toolbx : $(istoolbx)"
-elif [ $openedtoolbx ]
+elif [[ $openedtoolbx ]]
 then
   echo "client shell > $(hostname)"  
-else
+elif [[ $- == *i* ]]
+then
   declare local dotfiles_path=~/dotfiles
   declare local currentworkingdirecory=$(pwd)
   declare local toolbox_default=default.interactive
@@ -14,6 +15,5 @@ else
 
   toolbox list --containers | grep $toolbox_default > /dev/null || toolbox create $toolbox_default
   toolbox enter $toolbox_default
- 
   openedtoolbx="true"
 fi
