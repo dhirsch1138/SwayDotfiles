@@ -1,3 +1,4 @@
+alias istoolbx='[ -f "/run/.toolboxenv" ] && grep -oP "(?<=name=\")[^\";]+" /run/.containerenv'
 if [ $(istoolbx) ]; then
   alias rpm-ostree="flatpak-spawn --host rpm-ostree"
   alias flatpak="flatpak-spawn --host flatpak"
