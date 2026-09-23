@@ -6,6 +6,7 @@ then
   echo "client shell > $(hostname)"  
 elif [[ $- == *i* ]]
 then
+  # this will only run in interactive shells
   declare local dotfiles_path=~/dotfiles
   declare local currentworkingdirecory=$(pwd)
   declare local toolbox_default=default.interactive
