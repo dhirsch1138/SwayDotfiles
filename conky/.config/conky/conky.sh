@@ -1,1 +1,1 @@
-toolbox run --container DesktopUtilities sh -c conky &
+toolbox run --container DesktopUtilities sh -c conky -d
