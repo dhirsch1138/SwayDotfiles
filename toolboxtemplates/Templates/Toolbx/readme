@@ -1,0 +1,10 @@
+https://containertoolbx.org/doc/#custom-images
+
+
+The Containerfile can then be built to create a my-fedora-toolbox:42 image:
+
+[user@hostname ~]$ podman build \
+                     --squash \
+                     --tag localhost/my-fedora-toolbox:42 \
+                     /path/to/Containerfile/dir
+

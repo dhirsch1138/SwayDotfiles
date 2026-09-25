@@ -1,0 +1,3 @@
+FROM registry.fedoraproject.org/fedora-toolbox:latest
+RUN dnf --assumeyes install conky
+RUN dnf clean all

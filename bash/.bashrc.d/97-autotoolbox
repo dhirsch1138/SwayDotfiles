@@ -14,7 +14,8 @@ then
   git ls-files --full-name --modified --others --exclude-standard | grep -i bash > /dev/null && echo Warning: untracked bash changes detected
   cd $pwd
 
-  toolbox list --containers | grep $toolbox_default > /dev/null || toolbox create $toolbox_default
+  toolbox list --images | grep default.interactive > /dev/null || podman build --squash --tag localhost/default.interactive:latest ~/Templates/Toolbx/default.interactive
+  toolbox list --containers | grep $toolbox_default > /dev/null || toolbox create $toolbox_default --image localhost/default.interactive
   toolbox enter $toolbox_default
   openedtoolbx="true"
 fi
