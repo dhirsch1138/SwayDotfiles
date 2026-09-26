@@ -10,21 +10,20 @@ then
   declare local dotfiles_path=~/dotfiles
   declare local currentworkingdirecory=$(pwd)
   declare local toolbox_default=default.interactive
+  declare local toolbox_default_image=localhost/$toolbox_default:latest
   cd $dotfiles_path
   git ls-files --full-name --modified --others --exclude-standard | grep -i bash > /dev/null && echo Warning: untracked bash changes detected
   cd $pwd
-  if [[ $(toolbox list --containers | grep $toolbox_default) ]]
+  if ! [[ $(toolbox list --containers | grep $toolbox_default) ]]
   then
-    echo . > /dev/null
-  elif [[ $(toolbox list --images | grep $toolbox_default) ]]
-  then
-    echo default toolbx $toolbox_default does not exist, creating
-    toolbox create $toolbox_default --image localhost/default.interactive
-  else
-    echo default toolbx image $toolbox_default does not exist, creating image and container
-    podman build --squash --tag localhost/default.interactive:latest ~/Templates/Toolbx/default.interactive
-    toolbox create $toolbox_default --image localhost/default.interactive
-   fi
+    echo Missing $toolbox_default container, creating container using image $toolbox_default_image
+    if ! [[ $(toolbox list --images | grep $toolbox_default) ]]
+    then
+      echo Missing $toolbox_default_image... creating
+      podman build --squash --tag localhost/$toolbox_default:latest ~/Templates/Toolbx/$toolbox_default
+    fi
+    toolbox create $toolbox_default --image localhost/$toolbox_default
+  fi
   toolbox enter $toolbox_default
   openedtoolbx="true"
 fi
