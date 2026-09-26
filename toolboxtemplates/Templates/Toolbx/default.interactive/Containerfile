@@ -1,3 +1,3 @@
 FROM registry.fedoraproject.org/fedora-toolbox:latest
-RUN dnf --assumeyes install stow vim gum
+RUN dnf --assumeyes install stow vim
 RUN dnf clean all
