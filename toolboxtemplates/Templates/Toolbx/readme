@@ -1,4 +1,18 @@
-https://containertoolbx.org/doc/#custom-images
+Local container definitions:
+* To build a single image:
+  podman build --squash --tag localhost/my-image:<version# OR latest> DirPathToContainerfile/
+  https://containertoolbx.org/doc/#custom-images
+* To build/update and (re)deploy all defined run update_all.sh
+  * Note: this will delete the existing containers and images, make sure changes are backed up
+
+How to create a definition:
+# Create a directory to track the new toolbox image
+# If files should be deployed image, create a 'root' folder in the container for them
+# Containerfile is built as expected, see existing examples or https://containertoolbx.org/doc/#custom-images
+#* The root folder is not part of the standard, it could be anything. Just make sure it is implemented in Containerfile
+# Optional - Any container setup/teardown scripting should be in:
+#* root/usr/local/bin/oncreate.sh
+#* root/usr/local/bin/ondelete.sh
 
 
 The Containerfile can then be built to create a my-fedora-toolbox:42 image:

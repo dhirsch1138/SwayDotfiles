@@ -1,8 +1,8 @@
 FROM registry.fedoraproject.org/fedora-toolbox:latest
-RUN touch /etc/profile.d/90-home.sh
 # override HOME env variable so that steam drops stuff elsewhere
-RUN echo "HOME=\$HOME/Toolbox/steam" | tee /etc/profile.d/99-home.sh -a
-RUN echo "echo Setup/Teardown scripts in /usr/bin" |tee /etc/profile.d/100-MOTD.sh -a
+# RUN touch /etc/profile.d/90-home.sh
+# RUN echo "HOME=\$HOME/Toolbox/steam" | tee /etc/profile.d/99-home.sh -a
+# RUN echo "echo Setup/Teardown scripts in /usr/bin" |tee /etc/profile.d/100-MOTD.sh -a
 RUN HOME="$HOME/Toolbox/steam"
 # copy files into image
 COPY root/ /

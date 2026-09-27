@@ -1,0 +1,1 @@
+echo Setup/Teardown scripts in /usr/local/bin

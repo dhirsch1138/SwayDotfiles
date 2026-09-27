@@ -14,7 +14,7 @@ then
   declare local toolbox_containerfiledir=~/Templates/Toolbx/$toolbox_default
   cd $dotfiles_path
   git ls-files --full-name --modified --others --exclude-standard | grep -i bash > /dev/null && echo Warning: untracked bash changes detected
-  cd $pwd
+  cd $currentworkingdirectory
   if ! [[ $(toolbox list --containers | grep $toolbox_default) ]]
   then
     echo Missing $toolbox_default container, creating container using image $toolbox_default_image
