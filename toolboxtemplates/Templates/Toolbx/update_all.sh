@@ -13,6 +13,7 @@ do
 		exit 1
 	else
 		echo Success
+	fi
 done
 echo Pruning old images
 podman image prune --all --force
