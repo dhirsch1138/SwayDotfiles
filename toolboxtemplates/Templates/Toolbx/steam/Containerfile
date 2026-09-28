@@ -1,8 +1,5 @@
 FROM registry.fedoraproject.org/fedora-toolbox:latest
 # override HOME env variable so that steam drops stuff elsewhere
-# RUN touch /etc/profile.d/90-home.sh
-# RUN echo "HOME=\$HOME/Toolbox/steam" | tee /etc/profile.d/99-home.sh -a
-# RUN echo "echo Setup/Teardown scripts in /usr/bin" |tee /etc/profile.d/100-MOTD.sh -a
 RUN HOME="$HOME/Toolbox/steam"
 # copy files into image
 COPY root/ /
@@ -10,5 +7,5 @@ RUN chmod +x /usr/local/bin/oncreate.sh
 RUN chmod +x /usr/local/bin/ondelete.sh
 RUN dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 RUN dnf config-manager setopt fedora-cisco-openh264.enabled=1
-RUN dnf --assumeyes install steam
+RUN dnf --assumeyes install steam stow
 RUN dnf clean all
