@@ -1,3 +1,6 @@
 FROM registry.fedoraproject.org/fedora-toolbox:latest
-RUN dnf --assumeyes install stow vim
+COPY root/ /
+RUN chmod +x /usr/local/bin/oncreate.sh
+RUN chmod +x /usr/local/bin/ondelete.sh
+RUN dnf --assumeyes install stow vim bat
 RUN dnf clean all

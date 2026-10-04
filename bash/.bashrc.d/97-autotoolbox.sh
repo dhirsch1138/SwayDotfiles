@@ -1,11 +1,13 @@
-if [[ $(istoolbx) ]]
+if ! [[ $- == *i* ]]
+then
+  echo is not interactive > /dev/null
+elif [[ $(istoolbx) ]]
 then
   echo "Current toolbx : $(istoolbx)"
 elif [[ $openedtoolbx ]]
 then
   echo "client shell > $(hostname)"  
-elif [[ $- == *i* ]]
-then
+else
   # this will only run in interactive shells
   declare local dotfiles_path=~/dotfiles
   declare local currentworkingdirecory=$(pwd)

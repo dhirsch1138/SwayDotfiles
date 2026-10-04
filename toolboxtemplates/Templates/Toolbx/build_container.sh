@@ -11,8 +11,8 @@ else
 	toolbox run -c $1 /usr/local/bin/ondelete.sh
 	echo Stopping container $1
 	podman stop $1
-  	echo Giving container a five seconds to stop...
-  	sleep 5
+  	echo Giving container a seven seconds to stop...
+  	sleep 7
   	echo Deleting container $1
   	toolbox rm $1
   	echo Create container $1
