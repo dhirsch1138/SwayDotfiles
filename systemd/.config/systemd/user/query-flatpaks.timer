@@ -1,8 +1,0 @@
-[Unit]
-Description=Timer for querying Flatpak updates
-
-[Timer]
-OnCalendar=daily
-
-[Install]
-WantedBy=default.target

@@ -1,6 +1,0 @@
-[Unit]
-Description=Query available Flatpak updates and notify user
-
-[Service]
-Type=oneshot
-ExecStart=sh flatpak_updatecheck.sh
