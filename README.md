@@ -14,7 +14,7 @@ This repo tracks my personal desktop configuration, which utilizes the Sway wind
 - Start with a current installation of Fedora Sway Atomic
 - Clone this repo to the home directory for your user, such that this file resides in ~/dotfiles
 - Run the toolbox update script: ~/dotfiles/toolboxtemplates/Templates/Toolbx/update_all.sh
--* This will built the defined toolbox images and create toolbox containers for them
+- * This will built the defined toolbox images and create toolbox containers for them
 - Deploy the configuration
   - Enter the *default.interactive* toolbox using : "toolbox enter default.interactive"
   - Browse to ~/dotfiles
