@@ -5,3 +5,6 @@ if [[ $- == *i* && $(istoolbx) ]]; then
   alias flatpak="flatpak-spawn --host flatpak"
   alias shutdown="flatpak-spawn --host shutdown"
 fi
+
+toolbox_default=default.interactive
+dotfiles_path='dotfiles'
