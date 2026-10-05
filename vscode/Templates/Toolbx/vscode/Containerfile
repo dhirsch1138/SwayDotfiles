@@ -1,0 +1,10 @@
+FROM registry.fedoraproject.org/fedora-toolbox:latest
+# copy files into image
+COPY root/ /
+RUN chmod +x /usr/local/bin/oncreate.sh
+RUN chmod +x /usr/local/bin/ondelete.sh
+RUN dnf --assumeyes install vim qutebrowser
+RUN wget https://update.code.visualstudio.com/latest/linux-rpm-x64/stable -O code-latest-x64.rpm
+RUN dnf --assumeyes install ./code-latest-x64.rpm
+RUN rm ./code-latest-x64.rpm
+RUN dnf clean all

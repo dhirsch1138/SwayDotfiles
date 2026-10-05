@@ -15,11 +15,13 @@ else
   	sleep 7
   	echo Deleting container $1
   	toolbox rm $1
+        sleep 5
   	echo Create container $1
 	if [[ $(toolbox create $1 -i $2) ]]
   	then
 		echo Running oncreate script for $1
-		toolbox run -c $1 /usr/local/bin/oncreate.sh
+		sleep 5
+                toolbox run -c $1 /usr/local/bin/oncreate.sh
 		exit 0
 	else
 		echo Failed to create image from $2 >&2
